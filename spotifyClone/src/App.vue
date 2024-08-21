@@ -11,7 +11,8 @@ let openMenu = ref(false)
 </script>
 
 <template>
-  <div
+  <div>
+    <div
   class="
   w-[calc(100%-240px)]
   h-[60px]
@@ -19,7 +20,7 @@ let openMenu = ref(false)
   right-0
   z-20
   bg-[#101010]
-  bg-opacity-20
+  bg-opacity-80
   flex
   items-center
   justify-between">
@@ -48,15 +49,16 @@ let openMenu = ref(false)
 
   <span
   v-if="openMenu"
-  class="fixed shadow-2xl cursor-pointer rounded-sm z-50 p-1 right-[35px] width-[190px] top-[52px]">
+  class="fixed w-[190px] bg-[#282828] shadow-2xl z-50 rounded-sm top-[52px] right-[35px] p-1 cursor-pointer">
     <ul class="text-gray-200 font-semibold text-[14px]">
-      <li class="px-3 border-b border-b-gray-600 py-2.5 hover:bg-[#3ED3D]">
+      <li class="px-3 py-2.5 hover:bg-[#3E3D3D] border-b border-b-gray-600  ">
         Profile
       </li>
-      <li class="px-3 py-2.5 hover:bg-[#3ED3D]">
+      <li class="px-3 py-2.5 hover:bg-[#3E3D3D]">
         Logout
       </li>
     </ul>
   </span>
+  </div>
   </div>
 </template>
