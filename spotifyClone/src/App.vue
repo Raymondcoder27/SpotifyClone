@@ -24,5 +24,39 @@ let openMenu = ref(false)
   items-center
   justify-between">
 
+  <div class="flex items-center ml-6">
+    <button type="button" class="rounded-full p-[-px] bg-black cursor-pointer">
+      <ChevronLeft fillColor="#FFFFFF" :size="30" />
+    </button>
+    <button type="button" class="rounded-full ml-4 p-[-px] bg-black cursor-pointer">
+      <ChevronRight fillColor="#FFFFFF" :size="30" />
+    </button>
+  </div>
+
+  <button
+  @click="openMenu = !openMenu" :class="openMenu ? 'bg-[#282828]': 'bg-black'"
+  class="bg-black rounded-full cursor-pointer mr-8 p-0.5 mt-0.5 hover:bg-[#282828]">
+    <div class="flex items-center">
+      <img src="./assets/profile.jpeg" 
+      class="rounded-full"
+      width="27" alt="">
+      <div class="text-white font-semibold ml-1.5 text-[14px]">Raymond Mwebe</div>
+      <ChevronDown v-if="!openMenu" @click="openMenu = true" size="25" fillColor="#FFFFFF"/>
+      <ChevronUp v-else @click="openMenu = false" size="25" fillColor="#FFFFFF"/> 
+    </div>
+  </button>
+
+  <span
+  v-if="openMenu"
+  class="fixed shadow-2xl cursor-pointer rounded-sm z-50 p-1 right-[35px] width-[190px] top-[52px]">
+    <ul class="text-gray-200 font-semibold text-[14px]">
+      <li class="px-3 border-b border-b-gray-600 py-2.5 hover:bg-[#3ED3D]">
+        Profile
+      </li>
+      <li class="px-3 py-2.5 hover:bg-[#3ED3D]">
+        Logout
+      </li>
+    </ul>
+  </span>
   </div>
 </template>
