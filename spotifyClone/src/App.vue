@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router';
 import {ref} from 'vue';
+import MenuItem from './components/MenuItem.vue';
 
 import ChevronUp from 'vue-material-design-icons/ChevronUp.vue'
 import ChevronDown from 'vue-material-design-icons/ChevronDown.vue'
@@ -42,8 +43,8 @@ let openMenu = ref(false)
       class="rounded-full"
       width="27" alt="">
       <div class="text-white font-semibold ml-1.5 text-[14px]">Raymond Mwebe</div>
-      <ChevronDown v-if="!openMenu" @click="openMenu = true" size="25" fillColor="#FFFFFF"/>
-      <ChevronUp v-else @click="openMenu = false" size="25" fillColor="#FFFFFF"/> 
+      <ChevronDown v-if="!openMenu" @click="openMenu = true" :size="25" fillColor="#FFFFFF"/>
+      <ChevronUp v-else @click="openMenu = false" :size="25" fillColor="#FFFFFF"/> 
     </div>
   </button>
 
@@ -65,7 +66,25 @@ let openMenu = ref(false)
   id="SideNav"
   class="p-6 z-50 bg-black w-[240px] h-[100%] fixed"
   >
-
+  <RouterLink to="/">
+    <img src="../public/icons/spotify-logo.png" width="125" alt="">
+  </RouterLink>
+  <div class="my-8"></div>
   </div>
+
+  <ul>
+    <RouterLink to="">
+      <MenuItem 
+      class="ml-[1px]"
+      :iconSize="23" name="Home" iconString="home" pageUrl="/" 
+      />
+    </RouterLink>
+    <RouterLink to="">
+      <MenuItem 
+      class="ml-[1px]"
+      :iconSize="23" name="Search" iconString="search" pageUrl="/search" 
+      />
+    </RouterLink>
+  </ul>
   </div>
 </template>
