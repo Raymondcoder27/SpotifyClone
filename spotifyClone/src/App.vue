@@ -132,6 +132,11 @@ let openMenu = ref(false);
       <li class="font-semibold mt-3 hover:text-white text-gray-300 text-[13px] cursor-pointer">Euphoria</li>
     </ul>
   </div>
+  </div>
 
+  <div class="fixed right-0 top-0 overflow-auto h-full w-[calc(100%-240px)] bg-gradient-to-b from-[#1C1C1C] to-black">
+    <div class="mt-[70px]"></div>
+    <RouterView />
+    <div class="mb-[100px]"></div>
   </div>
 </template>
