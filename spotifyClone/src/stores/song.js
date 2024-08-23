@@ -26,6 +26,18 @@ export const useSongStore = defineStore('song', () => {
       isPlaying.value = false
       audio.value.play()
     }, 200);
+  };
+
+  const playOrPauseSong=()=>{
+    if (audio.value.paused){
+      isPlaying.value = true
+      audio.value.play()
+    }
+  }
+
+
+  const playOrPauseThisSong=(artist, track)=>{
+
   }
 
   const doubleCount = computed(() => count.value * 2)
@@ -33,5 +45,5 @@ export const useSongStore = defineStore('song', () => {
     count.value++
   }
 
-  return { count, doubleCount, increment }
+  return { count, doubleCount, isPlaying, audio,  currentArtist, currentTrack, loadSong, playOrPauseSong, playOrPauseThisSong,  increment }
 })
