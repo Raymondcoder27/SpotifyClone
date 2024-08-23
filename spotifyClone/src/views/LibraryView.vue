@@ -1,4 +1,5 @@
 <script setup>
+import SongRow from "../components/SongRow.vue"
 import Play from "vue-material-design-icons/Play.vue";
 import Pause from "vue-material-design-icons/Pause.vue";
 import DotsHorizontal from "vue-material-design-icons/DotsHorizontal.vue";
@@ -73,7 +74,7 @@ import artist from "../artist.json";
     <div class="border-b mt-2 border-b-[#2A2A2A]"></div>
     <div class="mb-4"></div>
     <ul class="w-full text-white" v-for="track, index in artist.tracks" :key="track">
-        {{ track }}
+        <SongRow :artist="artist" :track="track" :index="++index" />
     </ul>
   </div>
 </template>
