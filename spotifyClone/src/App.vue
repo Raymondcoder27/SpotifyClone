@@ -99,7 +99,7 @@ let openMenu = ref(false);
           pageUrl="/search"
         />
       </RouterLink>
-      <RouterLink to="">
+      <RouterLink to="/library">
         <MenuItem
           class="ml-[1px]"
           :iconSize="23"
