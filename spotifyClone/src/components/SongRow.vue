@@ -22,8 +22,9 @@
     @mouseleave="isHover = false">
         <div class="flex items-center w-full py-1.5">
             <div class="cursor-pointer w-[40px] ml-[14px] mr-[6px]">
-
-            </div>
+                <Play v-if="true" :size="25" fillColor="#FFFFFF" />
+                <Play v-else :size="25" fillColor="#FFFFFF" />
+            </div>  
         </div>
     </li>
 </template>
