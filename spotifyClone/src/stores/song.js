@@ -37,7 +37,12 @@ export const useSongStore = defineStore('song', () => {
 
 
   const playOrPauseThisSong=(artist, track)=>{
+    if( !audio.value || !audio.src.value || (currentTrack.id.value !== track.id)){
+      loadSong.value(artist, track)
+      return
+    }
 
+    playOrPauseSong.value()
   }
 
   const doubleCount = computed(() => count.value * 2)
