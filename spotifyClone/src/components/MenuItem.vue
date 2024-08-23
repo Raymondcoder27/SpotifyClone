@@ -42,9 +42,9 @@
    <li
    @mouseenter="isHover()"
    @mouseleave="isHover()"
-   class="flex items-center justify-start pb-4 cursor-pointer pt-20 pl-6">
+   class="flex items-center justify-start pb-4 cursor-pointer ">
         <!-- <img src="public/images/icons/${icon}.png" width="iconSize" alt=""> -->
-        <img :src="`/public/icons/home-active.png`" class="z-50" :width="iconSize" alt="">
+        <img :src="`/public/icons/${icon}.png`" class="z-50" :width="iconSize" alt="">
         <div
         :class="textIsHover ? 'text-white' : 'text-gray-400' " class="font-semibold ml-4 mt-0.5 text-[14px] z-50">
 
