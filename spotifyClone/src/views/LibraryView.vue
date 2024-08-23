@@ -35,9 +35,23 @@ import artist from "../artist.json";
             <div class="circle mt-2 mr-2" />
               <span class="-ml-0.5">{{ artist.releaseYear }}</span>
           </div>
+          <div class="ml-2 flex">
+            <div class="circle mt-2 mr-2" />
+              <span class="-ml-0.5">{{ artist.tracks.length }} songs</span>
+          </div>
         </div>
         
       </div>
     </div>
   </div>
 </template>
+
+
+<style scoped>
+    .circle{
+        width: 4px;
+        height: 4px;
+        border-radius: 100%;
+        background-color: rgb(189, 189, 189);
+    }
+</style>
