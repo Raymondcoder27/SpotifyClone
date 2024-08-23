@@ -81,7 +81,7 @@ let openMenu = ref(false);
       <div class="my-2"></div>
 
     <ul class="pt-8">
-      <RouterLink to="">
+      <RouterLink to="/">
         <MenuItem
           class="ml-[1px]"
           :iconSize="23"
@@ -90,7 +90,7 @@ let openMenu = ref(false);
           pageUrl="/"
         />
       </RouterLink>
-      <RouterLink to="">
+      <RouterLink to="/search">
         <MenuItem
           class="ml-[1px]"
           :iconSize="23"
