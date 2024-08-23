@@ -40,5 +40,16 @@ const { track, artist, index } = toRefs(props);
         <div class="text-sm font-semibold text-gray-400">{{ artist.name }}</div>
       </div>
     </div>
+
+    <div class="flex items-center">
+        <button type="button" v-if="isHover">
+            <Heart fillColor="#1BD760" :size="22" />
+        </button>
+        <div
+        v-if="isTrackTime"
+        class="text-xs mx-5 text-gray-400">
+            {{ isTrackTime }}
+        </div>
+    </div>
   </li>
 </template>
