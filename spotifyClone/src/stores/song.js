@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
-
+import artist from './artist.json'
 export const useSongStore = defineStore('song', () => {
   const isPlaying = ref(false)
   const audio = ref(null)
@@ -43,6 +43,21 @@ export const useSongStore = defineStore('song', () => {
     }
 
     playOrPauseSong.value()
+  }
+
+  const prevSong=(currentTrack)=>{
+    let track = artist.tracks(currentTrack.id - 2)
+    loadSong.value(artist, track)
+  }
+
+  const nextSong=(currentTrack)=>{
+    if (currentTrack.id === artists.tracks.length){
+      let track = artist.tracks[0]
+      loading.value(artist,track)
+    }else{
+      let track = artist.tracks[currentTrack.id]
+      loadSong.value(artist,track)
+    }
   }
 
   const doubleCount = computed(() => count.value * 2)
