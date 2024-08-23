@@ -59,14 +59,22 @@ import artist from "../artist.json";
     </div>
 
     <div class="mt-6"></div>
-    <div class="flex items-center justify-between text-gray-400">
-      <div class="mr-7">#</div>
-      <div class="text-sm">Title</div>
-      <div>
+    <div class="flex items-center justify-between px-5 pt-2">
+      <div class="flex items-center justify-between text-gray-400">
+        <div class="mr-7">#</div>
+        <div class="text-sm">Title</div>
+      </div>
+
+      <div class="ml-auto">
         <ClockTimeThreeOutline fillColor="#FFFFFF" :size="18" />
       </div>
     </div>
+
     <div class="border-b mt-2 border-b-[#2A2A2A]"></div>
+    <div class="mb-4"></div>
+    <ul class="w-full text-white" v-for="track, index in artist.tracks" :key="track">
+        {{ track }}
+    </ul>
   </div>
 </template>
 
