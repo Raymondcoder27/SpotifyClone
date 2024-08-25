@@ -69,7 +69,7 @@ let openMenu = ref(false);
           <li class="px-3 py-2.5 hover:bg-[#3E3D3D] border-b border-b-gray-600">
             Profile
           </li>
-          <li class="px-3 py-2.5 hover:bg-[#3E3D3D]">Logout</li>
+          <li class="px-3 py-2.5 hover:bg-[#3E3D3D]">Logout </li>
         </ul>
       </span>
     </div>

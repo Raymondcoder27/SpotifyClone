@@ -60,10 +60,22 @@ export const useSongStore = defineStore('song', () => {
     }
   }
 
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
+  const playFromFirst=()=>{
+    resetState.value()
+    let track = artist.tracks[0]
+    loading.value(artist,track)
   }
 
-  return { count, doubleCount, isPlaying, audio,  currentArtist, currentTrack, loadSong, playOrPauseSong, playOrPauseThisSong,  increment }
+  resetState=()=>{
+    isPlaying.value=ref(false)
+    currentArtist.value=ref(null)
+    currentTrack.value=ref(null)
+    audio.value=ref(null)
+  }
+  // const doubleCount = computed(() => count.value * 2)
+  // function increment() {
+  //   count.value++
+  // }
+
+  return {isPlaying, audio,  currentArtist, currentTrack, resetState, loadSong, playOrPauseSong, playOrPauseThisSong, playFromFirst, prevSong, nextSong }
 })
