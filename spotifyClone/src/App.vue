@@ -126,7 +126,7 @@ let openMenu = ref(false);
     <div class="border-b border-b-gray-700"></div>
 
     <ul>
-      <li class="font-semibold mt-3 hover:text-white text-gray-300 text-[13px] cursor-pointer">Playlist 1</li>
+      <li class="font-semibold mt-3 hover:text-white text-gray-300 text-[13px] cursor-pointer">Drop and give me 50</li>
       <li class="font-semibold mt-3 hover:text-white text-gray-300 text-[13px] cursor-pointer">Not Like Us</li>
       <li class="font-semibold mt-3 hover:text-white text-gray-300 text-[13px] cursor-pointer">Family Matters</li>
       <li class="font-semibold mt-3 hover:text-white text-gray-300 text-[13px] cursor-pointer">Euphoria</li>
