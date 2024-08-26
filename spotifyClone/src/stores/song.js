@@ -50,13 +50,21 @@ export const useSongStore = defineStore('song', () => {
     loadSong(artist, track)
   }
 
-  const nextSong=(currentTrack)=>{
-    if (currentTrack.value.id === artist.tracks.length){
-      let track = artist.tracks[0]
-      loadSong(artist,track)
+  const nextSong=()=>{
+
+    const track = currentTrack.value
+
+
+    if(!track ||  !track.id){
+      console.error("Invalid current track:", track)
+      return
+    }
+    if (track.id === artist.tracks.length){
+      let nextTrack = artist.tracks[0]
+      loadSong(artist,nextTrack)
     }else{
-      let track = artist.tracks[currentTrack.id]
-      loadSong(artist,track)
+      let nextTrack = artist.tracks[track.id]
+      loadSong(artist,nextTrack)
     }
   }
 

@@ -152,7 +152,7 @@ watch(
             </div>
             <div
             ref="seekerContainer"
-            class="w-full relative mt-2 mb-3"
+            class="w-full relative mt-4 mb-3"
             @mouseenter="isHover = true"
             @mouseleave="isHover = false">
             <input
