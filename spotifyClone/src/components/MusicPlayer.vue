@@ -42,6 +42,14 @@
                 audio.value.play()
                 isPlaying.value = true
             })
+
+
+            seekerContainer.value.addEventListener('click', function(){
+                const clickPosition = (e.PageX - seekerContainer.value.offsetLeft) / seekerContainer.value.offsetWidth;
+                const time = audio.value.duration * clickPosition
+                audio.value.currentTime = time
+                seeker.value.value = (100/audio.value.duration)* audio.value.currentTime
+            })
         }
     })
 
