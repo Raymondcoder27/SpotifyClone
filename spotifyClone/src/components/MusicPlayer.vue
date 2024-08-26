@@ -1,5 +1,6 @@
 <script setup>
 import { ref, watch, onMounted } from "vue";
+import MusicPlayerVolume from '@/components/MusicPlayerVolume.vue'
 import Heart from "vue-material-design-icons/Heart.vue";
 import PictureInPictureBottomRight from "vue-material-design-icons/PictureInPictureBottomRight.vue";
 import Play from "vue-material-design-icons/Play.vue";
@@ -96,7 +97,7 @@ watch(
 watch(
   () => isTrackTimeCurrent.value,
   (time) => {
-    if (time && time === isTrackTimeTotal.value) {
+    if (time && time == isTrackTimeTotal.value) {
       useSong.nextSong(currentTrack.value);
     }
   }
@@ -173,7 +174,10 @@ watch(
             <div v-if="isTrackTimeTotal" class="text-white pr-2 pt-[11px] text-[12px]">
                 {{ isTrackTimeTotal }}
             </div>
-            
+        </div>
+
+        <div class="flex items-center justify-end w-1/4 pr-10">
+            <MusicPlayerVolume />
         </div>
 
     </div>

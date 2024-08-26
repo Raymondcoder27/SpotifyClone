@@ -37,7 +37,7 @@ export const useSongStore = defineStore('song', () => {
 
 
   const playOrPauseThisSong=(artist, track)=>{
-    if( !audio.value || !audio.value.src|| (currentTrack.id.value !== track.id)){
+    if( !audio.value || !audio.value.src|| (currentTrack.value.id !== track.id)){
       loadSong(artist, track)
       return
     }
@@ -85,5 +85,9 @@ export const useSongStore = defineStore('song', () => {
   //   count.value++
   // }
 
+  persist:true
+
   return {isPlaying, audio,  currentArtist, currentTrack, resetState, loadSong, playOrPauseSong, playOrPauseThisSong, playFromFirst, prevSong, nextSong }
+},{
+  persist:true
 })
