@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
-import artist from './artist.json'
+// import artist from '@/artist.json'
 export const useSongStore = defineStore('song', () => {
   const isPlaying = ref(false)
   const audio = ref(null)
@@ -66,7 +66,7 @@ export const useSongStore = defineStore('song', () => {
     loading.value(artist,track)
   }
 
-  resetState=()=>{
+  const resetState=()=>{
     isPlaying.value=ref(false)
     currentArtist.value=ref(null)
     currentTrack.value=ref(null)

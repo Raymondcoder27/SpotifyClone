@@ -86,6 +86,10 @@
 </script>
 
 <template>
-    
+    <div
+    id="MusicPlayer"
+    class="fixed flex items-center justify-between w-full bottom-0 z-50 h-[90px] border-t bg-[#181818] border-t-[#272727]">
+
+    </div>
 </template>
 

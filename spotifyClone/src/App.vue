@@ -150,5 +150,5 @@ onMounted(()=>{
     <div class="mb-[100px]"></div>
   </div>
 
-  <MusicPlayer v-if="currentTrack" />
+  <MusicPlayer />
 </template>
