@@ -52,6 +52,42 @@ export const useSongStore = defineStore('song', () => {
     let track = artist.tracks[currentTrack.id - 2]
     loadSong(artist, track)
   }
+  // const prevSong=()=>{
+  //   if(!currentTrack.value || currentTrack.value.id){
+  //     loadSong(artist.tracks[artist.tracks.length-1])
+  //   }else{
+  //     const prevTrackId = currentTrack.value.id - 1
+  //     const prevTrack= artist.tracks[prevTrackId]
+  //     if(prevTrack){
+  //       loadSong(artist, prevTrack)
+  //     }else{
+  //       console.error("previous track not found")
+  //     }
+  //   }
+  // }
+
+  // const prevSong = () => {
+  //   if (!currentTrack.value || currentTrack.value.id <= 0) {
+  //     // If no current track or if current track is the first one, go to the last track
+  //     loadSong(artist, artist.tracks[artist.tracks.length - 1]);
+  //   } else {
+  //     // Go to the previous track
+  //     const prevTrackId = currentTrack.value.id - 1;
+  //     if (prevTrackId >= 0) {
+  //       const prevTrack = artist.tracks[prevTrackId];
+  //       if (prevTrack) {
+  //         loadSong(artist, prevTrack);
+  //       } else {
+  //         console.error("Previous track not found");
+  //       }
+  //     } else {
+  //       // If no previous track exists, go to the last track
+  //       loadSong(artist, artist.tracks[artist.tracks.length - 1]);
+  //     }
+  //   }
+  // };
+  
+  
 
   const nextSong=()=>{
 
