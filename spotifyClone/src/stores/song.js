@@ -16,11 +16,11 @@ export const useSongStore = defineStore('song', () => {
     if (audio.value && audio.src.value){
       audio.value.pause()
       isPlaying.value = false
-      audio.src.value = ''
+      audio.value.src = ''
     }
 
     audio.value = new Audio()
-    audio.src.value = track.path
+    audio.value.src = track.path
 
     setTimeout(() => {
       isPlaying.value = false
@@ -37,8 +37,8 @@ export const useSongStore = defineStore('song', () => {
 
 
   const playOrPauseThisSong=(artist, track)=>{
-    if( !audio.value || !audio.src.value || (currentTrack.id.value !== track.id)){
-      loadSong.value(artist, track)
+    if( !audio.value || !audio.value.src|| (currentTrack.id.value !== track.id)){
+      loadSong(artist, track)
       return
     }
 
@@ -47,7 +47,7 @@ export const useSongStore = defineStore('song', () => {
 
   const prevSong=(currentTrack)=>{
     let track = artist.tracks(currentTrack.id - 2)
-    loadSong.value(artist, track)
+    loadSong(artist, track)
   }
 
   const nextSong=(currentTrack)=>{
@@ -56,7 +56,7 @@ export const useSongStore = defineStore('song', () => {
       loading.value(artist,track)
     }else{
       let track = artist.tracks[currentTrack.id]
-      loadSong.value(artist,track)
+      loadSong(artist,track)
     }
   }
 
