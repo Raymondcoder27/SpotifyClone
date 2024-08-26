@@ -160,6 +160,10 @@ watch(
             type="range" 
             class="absolute rounded-full my-2 w-full h-0 z-40 appearance-none bg-opacity-100 accent-white focus:outline-none"
             :class="{'rangeDotHidden':!isHover}">
+            <div 
+            class="pointer-events-none mt-[6px] absolute h-[4px] z-10 inset-y-0 left-0" 
+            :style="`width: ${range}%;`"
+            :class="isHover ? 'bg-green-500': 'bg-white'"/>
             </div>
         </div>
 
