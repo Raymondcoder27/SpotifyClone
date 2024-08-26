@@ -76,7 +76,7 @@ const timeupdate = () => {
 };
 
 const loadmetadata = () => {
-  audio.value.addEventListener("loadmetadata", function () {
+  audio.value.addEventListener("loadedmetadata", function () {
     const duration = audio.value.duration;
     const minutes = Math.floor(duration / 60);
     const seconds = Math.floor(duration % 60);
@@ -143,8 +143,37 @@ watch(
                 </button>
             </div>
         </div>
+
+
+        <div class="flex items-center h-[25px]">
+            <div v-if="isTrackTimeCurrent" class="text-white pr-2 pt-[11px] text-[12px]">
+                {{ isTrackTimeCurrent }}
+            </div>
+            <div
+            ref="seekerContainer"
+            class="w-full relative mt-2 mb-3"
+            @mouseenter="isHover = true"
+            @mouseleave="isHover = false">
+            <input
+            v-model="range"
+            ref="seeker"
+            type="range" 
+            class="absolute rounded-full my-2 w-full h-0 z-40 appearance-none bg-opacity-100 accent-white focus:outline-none"
+            :class="{'rangeDotHidden':!isHover}">
+            </div>
+        </div>
+
     </div>
   
   </div>
 </template>
+
+<style>
+    .rangeDotHidden[type="range"]::-webkit-slider-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+        width: 0;
+        height: 0;
+    }
+</style>
 
