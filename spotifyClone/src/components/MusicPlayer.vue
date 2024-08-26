@@ -40,8 +40,24 @@
     }
 
     const loadmetadata = () => {
-        
+        audio.value.addEventListener('loadmetadata', function () {
+            const duration = audio.value.duration;
+            const minutes = Math.floor(duration / 60);
+            const seconds = Math.floor(duration % 60);
+            isTrackTimeTotal.value = minutes+':'+seconds.toString().padStart(2,'0')
+        })
     }
+
+    watch(()=> audio.value, () => {
+        timeupdate()
+        loadmetadata()
+    })
+
+    watch(()=> isTrackTimeCurrent.value, (time)=> {
+        if(time && time === isTrackTimeTotal.value){
+            useSong.nextSong(currentTrack.value)
+        }
+    })
 </script>
 
 <template>

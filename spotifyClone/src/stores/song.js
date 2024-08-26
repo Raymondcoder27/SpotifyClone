@@ -51,7 +51,7 @@ export const useSongStore = defineStore('song', () => {
   }
 
   const nextSong=(currentTrack)=>{
-    if (currentTrack.id === artists.tracks.length){
+    if (currentTrack.id === artist.tracks.length){
       let track = artist.tracks[0]
       loading.value(artist,track)
     }else{
