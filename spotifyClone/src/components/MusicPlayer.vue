@@ -28,28 +28,30 @@
         }
 
         if(currentTrack.value){
-            seeker.value.addEventListener(change, function(){
+            seeker.value.addEventListener('change', function(){
                 const time = audio.value.duration * (seeker.value.value / 100);
                 audio.value.currentTime = time
             })
 
+            if(seeker.value && seekerContainer.value && audio.value){
             seeker.value.addEventListener('mousedown', function(){
                 audio.value.pause()
                 isPlaying.value = false
             })
 
-            seeker.value.addEventListener('mousedown', function(){
+            seeker.value.addEventListener('mouseup', function(){
                 audio.value.play()
                 isPlaying.value = true
             })
 
 
             seekerContainer.value.addEventListener('click', function(){
-                const clickPosition = (e.PageX - seekerContainer.value.offsetLeft) / seekerContainer.value.offsetWidth;
+                const clickPosition = (e.pageX - seekerContainer.value.offsetLeft) / seekerContainer.value.offsetWidth;
                 const time = audio.value.duration * clickPosition
                 audio.value.currentTime = time
                 seeker.value.value = (100/audio.value.duration)* audio.value.currentTime
             })
+        }
         }
     })
 
