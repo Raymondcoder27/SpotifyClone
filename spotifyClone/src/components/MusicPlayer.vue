@@ -21,10 +21,27 @@
 
     onMounted(()=>{
         if(audio.value){
-            setTimeout(() => {
+            setTimeout(() => { 
                 timeupdate()
                 loadmetadata()
             }, 300);
+        }
+
+        if(currentTrack.value){
+            seeker.value.addEventListener(change, function(){
+                const time = audio.value.duration * (seeker.value.value / 100);
+                audio.value.currentTime = time
+            })
+
+            seeker.value.addEventListener('mousedown', function(){
+                audio.value.pause()
+                isPlaying.value = false
+            })
+
+            seeker.value.addEventListener('mousedown', function(){
+                audio.value.play()
+                isPlaying.value = true
+            })
         }
     })
 
