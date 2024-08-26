@@ -8,6 +8,10 @@
     import { storeToRefs } from 'pinia';
     const useSong = useSongStore()
     const {audio} = storeToRefs(useSong)
+
+    let isHover = ref(false)
+    let vol = ref(80)
+    let volume = ref(null)
 </script>
 
 
