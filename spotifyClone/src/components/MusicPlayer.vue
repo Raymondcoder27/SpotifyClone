@@ -1,6 +1,6 @@
 <script setup>
 import { ref, watch, onMounted } from "vue";
-import MusicPlayerVolume from '@/components/MusicPlayerVolume.vue'
+import MusicPlayerVolume from "@/components/MusicPlayerVolume.vue";
 import Heart from "vue-material-design-icons/Heart.vue";
 import PictureInPictureBottomRight from "vue-material-design-icons/PictureInPictureBottomRight.vue";
 import Play from "vue-material-design-icons/Play.vue";
@@ -72,7 +72,7 @@ const timeupdate = () => {
     // if (seeker.value) {
     //   seeker.value.value = value;
     // }
-    seeker.value.value = value
+    seeker.value.value = value;
   });
 };
 
@@ -106,92 +106,120 @@ watch(
 
 <template>
   <div
-  v-if="audio"
+    v-if="audio"
     id="MusicPlayer"
     class="fixed flex items-center justify-between w-full bottom-0 z-50 h-[90px] border-t bg-[#181818] border-t-[#272727]"
   >
-  
     <div class="flex items-center w-1/4">
-        <div class="flex items-center ml-4">
-            <img class="rounded-sm shadow-2xl" width="55" :src="currentArtist.albumCover">
-            <div class="ml-4">
-                <div class="text-white cursor-pointer text-[14px] hover:underline hover:text-white">
-                    {{ currentTrack.name }}
-                </div>
-                <div class="text-gray-400 cursor-pointer text-[11px] hover:underline">
-                    {{ currentTrack.name }}
-                </div>
-            </div>
+      <div class="flex items-center ml-4">
+        <img
+          class="rounded-sm shadow-2xl"
+          width="55"
+          :src="currentArtist.albumCover"
+        />
+        <div class="ml-4">
+          <div
+            class="text-white cursor-pointer text-[14px] hover:underline hover:text-white"
+          >
+            {{ currentTrack.name }}
+          </div>
+          <div class="text-gray-400 cursor-pointer text-[11px] hover:underline">
+            {{ currentTrack.name }}
+          </div>
         </div>
+      </div>
 
-        <div class="flex items-center ml-8">
-            <Heart :size="20" fillColor="#1BD760"/>
-            <PictureInPictureBottomRight class="ml-4" fillColor="#FFFFFF" :size="18" />
-        </div>
+      <div class="flex items-center ml-8">
+        <Heart :size="20" fillColor="#1BD760" />
+        <PictureInPictureBottomRight
+          class="ml-4"
+          fillColor="#FFFFFF"
+          :size="18"
+        />
+      </div>
     </div>
 
     <div class="mx-auto mb-3 max-w-[35%] w-2/4">
-        <div class="flex-col items-center justify-center">
-            <div class="flex items-center justify-center h-[30px]">
-                <button class="mx-2">
-                    <SkipBackward fillColor="#FFFFFF" :size="25" @click="useSong.prevSong(currentTrack)"/>
-                </button>
-                <button class="p-1 rounded-full mx-3 bg-white" @click="useSong.playOrPauseThisSong(currentArtist, currentTrack)">
-                    <Play v-if="!isPlaying" fillColor="#181818" :size="25"/>
-                    <Pause v-else fillColor="#181818" :size="25" />
-                </button>
-                <button class="mx-2">
-                    <SkipForward fillColor="#FFFFFF" :size="25" @click="useSong.nextSong(currentTrack)"/>
-                </button>
-            </div>
+      <div class="flex-col items-center justify-center">
+        <div class="flex items-center justify-center h-[30px]">
+          <button class="mx-2">
+            <SkipBackward
+              fillColor="#FFFFFF"
+              :size="25"
+              @click="useSong.prevSong(currentTrack)"
+            />
+          </button>
+          <button
+            class="p-1 rounded-full mx-3 bg-white"
+            @click="useSong.playOrPauseThisSong(currentArtist, currentTrack)"
+          >
+            <Play v-if="!isPlaying" fillColor="#181818" :size="25" />
+            <Pause v-else fillColor="#181818" :size="25" />
+          </button>
+          <button class="mx-2">
+            <SkipForward
+              fillColor="#FFFFFF"
+              :size="25"
+              @click="useSong.nextSong(currentTrack)"
+            />
+          </button>
         </div>
+      </div>
 
-
-        <div class="flex items-center h-[25px]">
-            <div v-if="isTrackTimeCurrent" class="text-white pr-2 pt-[11px] text-[12px]">
-                {{ isTrackTimeCurrent }}
-            </div>
-            <div
-            ref="seekerContainer"
-            class="w-full relative mt-4 mb-3"
-            @mouseenter="isHover = true"
-            @mouseleave="isHover = false">
-            <input
+      <div class="flex items-center h-[25px]">
+        <div
+          v-if="isTrackTimeCurrent"
+          class="text-white pr-2 pt-[11px] text-[12px]"
+        >
+          {{ isTrackTimeCurrent }}
+        </div>
+        <div
+          ref="seekerContainer"
+          class="w-full relative mt-4 mb-3"
+          @mouseenter="isHover = true"
+          @mouseleave="isHover = false"
+        >
+          <input
             v-model="range"
             ref="seeker"
-            type="range" 
+            type="range"
             class="absolute rounded-full my-2 w-full h-0 z-40 appearance-none bg-opacity-100 accent-white focus:outline-none"
-            :class="{'rangeDotHidden':!isHover}">
-            <div 
-            class="pointer-events-none mt-[6px] absolute h-[4px] z-10 inset-y-0 left-0" 
+            :class="{ rangeDotHidden: !isHover }"
+          />
+          <div
+            class="pointer-events-none mt-[6px] absolute h-[4px] z-10 inset-y-0 left-0"
             :style="`width: ${range}%;`"
-            :class="isHover ? 'bg-green-500': 'bg-white'"/>
-            <div 
-            class="mt-[6px] absolute h-[4px] z-[-0] left-0 w-full inset-y-0 bg-gray-500" 
-            >
-            </div>
+            :class="isHover ? 'bg-green-500' : 'bg-white'"
+          />
+          <div
+            class="mt-[6px] absolute h-[4px] z-[-0] left-0 w-full inset-y-0 bg-gray-500"
+          ></div>
 
-            <div v-if="isTrackTimeTotal" class="text-white pr-2 pt-[11px] text-[12px]">
-                {{ isTrackTimeTotal }}
-            </div>
+          <div
+            v-if="isTrackTimeTotal"
+            class="text-white pl-2 pt-[11px] text-[12px]"
+          >
+            {{ isTrackTimeTotal }}
+          </div>
         </div>
 
-        <div class="flex items-center justify-end w-1/4 pr-10">
+        <!-- <div class="flex items-center justify-end w-1/4 pr-10">
             <MusicPlayerVolume />
-        </div>
-
+        </div> -->
+      </div>
     </div>
-  
-  </div>
+    <div class="flex items-center justify-end w-1/4 pr-10">
+      <MusicPlayerVolume />
+    </div>
   </div>
 </template>
 
 <style>
-    .rangeDotHidden[type="range"]::-webkit-slider-thumb{
-        -webkit-appearance: none;
-        appearance: none;
-        width: 0;
-        height: 0;
-    }
+.rangeDotHidden[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0;
+  height: 0;
+}
 </style>
 

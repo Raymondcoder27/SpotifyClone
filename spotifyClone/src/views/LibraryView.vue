@@ -61,7 +61,7 @@ import { useSongStore } from '@/stores/song';
         >
           <button type="button" class="p-l rounded-full bg-white">
             <Play v-if="true" :size="25" fillColor="#181818" />
-            <Play v-else :size="25" fillColor="#181818" />
+            <Pause v-else :size="25" fillColor="#181818" />
           </button>
           <button type="button" class="p-l rounded-full">
             <Heart :size="30" fillColor="#1BD760" />
