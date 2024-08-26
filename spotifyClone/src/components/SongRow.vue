@@ -47,17 +47,20 @@ onMounted(()=> {
          :size="25" 
          fillColor="#FFFFFF" 
         @click="useSong.loadSong(artist, track)"/>
-        <Play v-else :size="25" fillColor="#FFFFFF" 
-        @click="useSong.playOrPauseThisSong()"/>
+
+        <Pause v-else :size="25" fillColor="#FFFFFF" 
+        @click="useSong.playOrPauseSong()"/>
       </div>
       <div v-else class="text-white font-semibold ml-5 w-[40px]">
-        <span>
+        <span
+        :class="{'text-green-500': currentTrack && currentTrack.name === track.name}">
           {{ index }}
         </span>
       </div>
 
       <div>
-        <div class="text-white font-semibold">
+        <div class="text-white font-semibold"
+        :class="{'text-green-500': currentTrack && currentTrack.name === track.name}">
           {{ track.name }}
         </div>
         <div class="text-sm font-semibold text-gray-400">{{ artist.name }}</div>
