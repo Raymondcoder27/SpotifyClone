@@ -193,24 +193,28 @@ watch(
           />
           <div
             class="mt-[6px] absolute h-[4px] z-[-0] left-0 w-full inset-y-0 bg-gray-500"
-          ></div>
+          />
+        </div>
 
-          <div
+
+        <div
             v-if="isTrackTimeTotal"
             class="text-white pl-2 pt-[11px] text-[12px]"
           >
             {{ isTrackTimeTotal }}
           </div>
-        </div>
-
-        <!-- <div class="flex items-center justify-end w-1/4 pr-10">
-            <MusicPlayerVolume />
-        </div> -->
       </div>
     </div>
     <div class="flex items-center justify-end w-1/4 pr-10">
       <MusicPlayerVolume />
     </div>
+
+
+
+ 
+ 
+ 
+ 
   </div>
 </template>
 
