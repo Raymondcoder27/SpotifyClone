@@ -46,7 +46,7 @@ export const useSongStore = defineStore('song', () => {
   }
 
   const prevSong=(currentTrack)=>{
-    let track = artist.tracks(currentTrack.id - 2)
+    let track = artist.tracks[currentTrack.id - 2]
     loadSong(artist, track)
   }
 
