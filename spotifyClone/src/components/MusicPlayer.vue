@@ -105,6 +105,7 @@ watch(
 
 <template>
   <div
+  v-if="audio"
     id="MusicPlayer"
     class="fixed flex items-center justify-between w-full bottom-0 z-50 h-[90px] border-t bg-[#181818] border-t-[#272727]"
   >
@@ -124,7 +125,7 @@ watch(
 
         <div class="flex items-center ml-8">
             <Heart :size="20" fillColor="#1BD760"/>
-            <PictureInPictureBottomRight class="ml-4" fillColor="#FFFFFF" size="18" />
+            <PictureInPictureBottomRight class="ml-4" fillColor="#FFFFFF" :size="18" />
         </div>
     </div>
 
@@ -164,11 +165,20 @@ watch(
             class="pointer-events-none mt-[6px] absolute h-[4px] z-10 inset-y-0 left-0" 
             :style="`width: ${range}%;`"
             :class="isHover ? 'bg-green-500': 'bg-white'"/>
+            <div 
+            class="mt-[6px] absolute h-[4px] z-[-0] left-0 w-full inset-y-0 bg-gray-500" 
+            >
             </div>
+
+            <div v-if="isTrackTimeTotal" class="text-white pr-2 pt-[11px] text-[12px]">
+                {{ isTrackTimeTotal }}
+            </div>
+            
         </div>
 
     </div>
   
+  </div>
   </div>
 </template>
 
