@@ -32,6 +32,9 @@ export const useSongStore = defineStore('song', () => {
     if (audio.value.paused){
       isPlaying.value = true
       audio.value.play()
+    } else{
+      isPlaying.value = false
+      audio.value.pause()
     }
   }
 
