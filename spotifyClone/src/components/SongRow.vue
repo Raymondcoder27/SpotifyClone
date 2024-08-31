@@ -44,7 +44,7 @@ onMounted(()=> {
          fillColor="#FFFFFF" 
         @click="useSong.playOrPauseThisSong(artist, track)"/>
         <Play v-else-if="isPlaying && currentTrack.name !== track.name"
-         :size="25" 
+         :size="24" 
          fillColor="#FFFFFF" 
         @click="useSong.loadSong(artist, track)"/>
 
